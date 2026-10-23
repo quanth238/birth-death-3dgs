@@ -58,12 +58,13 @@ iteration count (default: `7000`). Metrics are saved to `results.json` and
 
 ## Results
 
-Mean results on all nine Mip-NeRF360 scenes at **7k iterations**:
+Mean results on the seven-scene Mip-NeRF360 subset at **7k iterations**:
+Bicycle, Bonsai, Counter, Garden, Kitchen, Room, and Stump.
 
 | Method | PSNR ↑ | SSIM ↑ | LPIPS ↓ | Mean Gaussians ↓ |
 |---|---:|---:|---:|---:|
-| Vanilla 3DGS | 26.0086 | 0.7683 | 0.2845 | 2,038,866 |
-| First-variation ADC | **26.3471** | **0.7864** | **0.2558** | **1,736,970** |
+| Vanilla 3DGS | 27.3727 | 0.8307 | 0.2414 | 2,039,499 |
+| First-variation ADC | **27.7072** | **0.8453** | **0.2144** | **1,736,896** |
 
 Gaussian counts vary by scene. See [per-scene results and protocol](docs/results.md).
 
