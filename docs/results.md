@@ -7,10 +7,12 @@ held-out split, and Vanilla clone/split/prune operations. ADC starts after
 iteration 500 and runs every 100 iterations.
 
 First variation uses 16 score views, `0.8 * L1 + 0.2 * (1 - SSIM)`, and no EMA
-or clipping. Parents must satisfy `q_i > 1e-7`; each event adds at most 10% of
-the current population. If more parents qualify, we sample without replacement
-in proportion to `q_i - 1e-7`. There is no final Gaussian cap. This setting was
-selected on Bicycle and applied unchanged to the other six scenes in this table.
+or clipping. Parents must satisfy `q_i > τ`, where `τ` is a tunable threshold
+hyperparameter (`--first_variation_birth_threshold`). The reported runs use
+`τ = 1e-7`, selected on Bicycle and kept fixed across all seven scenes.
+Each event adds at most 10% of the current population. If more parents qualify,
+we sample without replacement in proportion to `q_i - τ`. There is no final
+Gaussian cap.
 
 | Scene | Vanilla PSNR | First variation PSNR | Δ PSNR | Δ SSIM | LPIPS reduction | Vanilla Gaussians | First variation Gaussians |
 |---|---:|---:|---:|---:|---:|---:|---:|

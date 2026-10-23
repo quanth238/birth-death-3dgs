@@ -22,8 +22,10 @@ q_i = -\left.\frac{\partial \widehat F(m)}{\partial m_i}\right|_{m=1}
 $$
 
 A positive score means that increasing the Gaussian's contribution would
-locally reduce the loss. We use this score to select parents for Vanilla
-cloning and splitting, retaining opacity and size pruning.
+locally reduce the loss. We select parents for Vanilla cloning and splitting
+with `q_i > τ`, retaining opacity and size pruning. The threshold `τ` is a
+tunable hyperparameter (`--first_variation_birth_threshold`); the reported
+experiments use `τ = 1e-7`.
 
 ## Install
 
